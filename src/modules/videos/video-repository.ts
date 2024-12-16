@@ -9,6 +9,8 @@ export const videoRepository = {
     async getVideos() {
         return await videosCollection.find({}).toArray() //.find({}, { projection: { _id: 0 }) }
         //return await videosCollection.find({title: 'title'}, {projection: {title: 1, _id: 0}}).sort({title: 1}).toArray() as {title: string}[]
+        //return db.videos
+
     },
     async createVideo(body: VideoType): Promise<ObjectId>{
         const video:VideoType = {
@@ -24,7 +26,7 @@ export const videoRepository = {
         }
         //db.videos = [...db.videos, video]
         const res = await videosCollection.insertOne(video)
-
+        //const el = await videosCollection.findOne({_id: res.insertedId} )
         return res.insertedId // = new ObjectId('66efeaadeb3....') рассказать про ObjectId
     },
     async getVideo(id: string) {

@@ -10,5 +10,5 @@ export const SETTINGS = {
         BLOGS: '/blogs', //это вручную, а так же можно еще смотреть в .env. C помощью библ 'dotenv' у нас это будет работаь с энвами
     },
     MONGO_URL:process.env.MONGO_URL || 'mongodb://0.0.0.0:27017',
-    DB_NAME: process.env.DB_NAME || ''
+    DB_NAME: process.env.DB_NAME || 'test'
 }

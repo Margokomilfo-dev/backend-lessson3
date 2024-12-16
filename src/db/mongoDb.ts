@@ -1,7 +1,8 @@
-import { MongoClient, Db, Collection } from 'mongodb'
+import { MongoClient, Collection } from 'mongodb'
 import {VideoType} from "../types/video.type";
 import {SETTINGS} from "../settings";
 import * as dotenv from 'dotenv'
+import {BlogType} from "../types/blog.type";
 dotenv.config()
 
 export let videosCollection: Collection<VideoType>
@@ -12,7 +13,7 @@ export async function runDb(url: string): Promise<boolean>{
     let db = client.db(SETTINGS.DB_NAME)
 
     videosCollection = db.collection<VideoType>(SETTINGS.PATH.VIDEOS)
-    blogsCollection = db.collection<VideoType>(SETTINGS.PATH.BLOGS)
+    blogsCollection = db.collection<BlogType>(SETTINGS.PATH.BLOGS)
 
     try {
         await client.connect();
